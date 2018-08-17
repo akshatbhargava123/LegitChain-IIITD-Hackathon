@@ -2,30 +2,6 @@
 
 Legit Chain is the trustworthy, decentralized way to store evidence, forensic information, and legal records that leaves a major social impact on how people trust the govt officials and making things accessible for them.
 
-## <u>Progress</u>
-<p>
-Team members: Sakshi, Akshat, Dhruv and Hemabh
-
-
-<b>Sakshi</b>:
-    Current: Developed form and list to add and list evidences 
-    Next: Develop the UI of portal to register case by govt. officials
-
-<b>Akshat</b>:
-    Current: Developed some portion of Court Smart Contract
-    Next: Complete the Court Contract and work on centralised server
-
-<b>Dhruv</b>:
-    Current: Integrate the backend to the UI developed by Sakshi
-    Next: Integrate the register case thing after sakshi finishes that
-
-<b>Hemabh</b>:
-    Current: Researched for us and created this cool README and ppt
-    Next: Upgrade documentation stuff
-
-</p>
-
-
 ## <u>Problem Statement</u>
 
 <p>
@@ -43,3 +19,22 @@ We propose a solution where all the evidences submitted by a user are pushed to 
 5. [Truffle Framework](https://truffleframework.com/ganache) for easy development of smart contracts and deploying to blockchain
 6. [Ganache](https://truffleframework.com/ganache) to provide local blockchain
 7. [Web3JS](https://web3js.readthedocs.io/en/1.0/) as layer to contact blockchain via normal browser
+
+## <u>Developers</u>
+<p>
+Team members: Sakshi, Akshat, Dhruv, Hemabh
+
+
+<b>Sakshi</b>:
+   Developed form and list to add and list evidences and the UI of portal to register case by govt. officials
+
+<b>Akshat</b>:
+   Developed some portion of Court Smart Contract and completed the Court Contract and work on centralised server
+
+<b>Dhruv</b>:
+   Integrated the backend to the UI developed by Sakshi and the register case thing after sakshi finishes that
+
+<b>Hemabh</b>:
+   Researched and validated idea, created README and presentation.    
+
+</p>
