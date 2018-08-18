@@ -2,6 +2,12 @@
 
 Legit Chain is the trustworthy, decentralized way to store evidence, forensic information, and legal records that leaves a major social impact on how people trust the govt officials and making things accessible for them.
 
+### Steps to start
+- npm install
+- ipfs daemon
+- ganachi-cli -p 7545
+-npm start
+
 ## <u>Problem Statement</u>
 
 <p>
