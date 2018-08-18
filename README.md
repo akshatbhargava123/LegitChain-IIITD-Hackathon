@@ -1,6 +1,6 @@
 # ***Legit Chain***
 
-Legit Chain is blockchain based solution to avoid evidence tampering in Indian Court (actually any judiary based system out there).
+Legit Chain is the trustworthy, decentralized way to store evidence, forensic information, and legal records that leaves a major social impact on how people trust the govt officials and making things accessible for them.
 
 ## <u>Problem Statement</u>
 
@@ -20,22 +20,27 @@ We propose a solution where all the evidences submitted by a user are pushed to 
 6. [Ganache](https://truffleframework.com/ganache) to provide local blockchain
 7. [Web3JS](https://web3js.readthedocs.io/en/1.0/) as layer to contact blockchain via normal browser
 
-## <u>Flow of the application</u>
-
+## <u>Developers</u>
 <p>
+Team members: Sakshi, Akshat, Dhruv, Hemabh
 
-- User enters it's public key and the Case ID given by officials to the system
-- They now chose one of the court cases going on with them
-- Now they are shown a evidence list of the case chosen and an option to upload a new evidence for approval to show in next hearing
-- They upload an evidence filling all its detail and the payload is encrypyted using NuCypher and signed using user's private key on the frontend and sent to the organisation's service
-- Organisation / Govt.'s service automatically makes a transaction to the blockchain on the behalf of user so that user doesn't have to pay for the gas
-- Evidence gets added to the blockchain and now is forever there and hence no immutability is possible, here we also trigger an event from the Smart Contract to update the UI with the new evidence.
+
+<b>Sakshi</b>:
+   Developed form and list to add and list evidences and the UI of portal to register case by govt. officials
+
+<b>Akshat</b>:
+   Developed some portion of Court Smart Contract and completed the Court Contract and work on centralised server
+
+<b>Dhruv</b>:
+   Integrated the backend to the UI developed by Sakshi and the register case thing after sakshi finishes that
+
+<b>Hemabh</b>:
+   Researched and validated idea, created README and presentation.    
+
 </p>
 
-## <u>Accomplishments we are proud of</u>
 
-<p>
+TODO:
 
-- Making the organisation pay the gas for user without risking the transaction owner's data immutability
-- Encrypting data before adding to IPFS network using NuCypher
-</p>
+- NuCypher integration
+- Dai Coin integration to make sure the currency remains stable for government
