@@ -5,7 +5,11 @@ import CourtContract from '../build/contracts/Court.json';
 import getWeb3 from './utils/getWeb3'
 import ipfs from './ipfs'
 
-import EvidenceList from './EvidenceList';
+// import EvidenceList from './EvidenceList';
+import EvidenceList from './components/EvidenceList';
+import EvidenceReport from './components/EvidenceReport';
+import RegisterCase from './components/RegisterCase';
+import RegisterEvidence from './components/RegisterEvidence';
 
 class App extends Component {
   constructor(props) {
@@ -26,12 +30,14 @@ class App extends Component {
       },
       evidences: [],
       uploadedImage: '',
-      account: ''
+      account: '',
+      accounts: []
     };
 
     this.captureFile = this.captureFile.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.registerCase = this.registerCase.bind(this);
     this.courtContract = null;
   }
 
@@ -45,7 +51,7 @@ class App extends Component {
   }
 
   test = () => {
-
+    this.initEvidenceList(this.state.details.caseId);
   }
 
   getEvidenceInstance = (result) => {
@@ -106,7 +112,7 @@ class App extends Component {
           }
         });
 
-        this.setState({ account: accounts[0] });
+        this.setState({ account: accounts[0], accounts: accounts });
       }).catch(err => console.error(err));
     });
   }
@@ -120,20 +126,31 @@ class App extends Component {
     });
   }
 
-  registerCase() {
-    // this.courtContract.registerCase(
-    //   'courtabc',
-    //   'akshat',
-    //   'sakshi',
-    //   'dhruv',
-    //   'case001',
-    //   'This is a case regarding robbery at punjabi bagh palace.',
-    //   new Date().toISOString()
-    // ).then((result) => {
-    //   console.log('registerCase result', result);
-    // });
+  registerCase(
+    firstPartyAddress,
+    secondPartyAddress,
+    caseId,
+    caseDescription,
+    startDateTime = new Date().toISOString(),
+    judgeAddress = "testjudge",
+    courtId = "courtxyz"
+  ) {
+    this.courtContract.registerCase(
+      courtId, // courtId
+      firstPartyAddress, // firstParty
+      secondPartyAddress, // secondParty
+      judgeAddress, // judge
+      caseId, // caseId
+      caseDescription, // caseDescription
+      startDateTime, // startDateTime of the case
+      {
+        from: this.state.account
+      }
+    ).then(r => {
+      console.log(r)
+    }).catch(err => console.log(err));
   }
-  
+
   captureFile(event) {
     event.preventDefault()
     const file = event.target.files[0]
@@ -161,10 +178,6 @@ class App extends Component {
   onSubmit(event) {
     event.preventDefault();
     console.log(this.state);
-
-    // this.state.storageValue = this.state.storageValue + 1;
-    // const docName = 'TestDoc' + this.state.storageValue;
-
 
     this.courtContract.registerEvidence(
       this.state.details.caseId,
@@ -301,7 +314,12 @@ class App extends Component {
             </div>
           </form>
           <br /><br /><br />
-          <EvidenceList />
+          <EvidenceList evidences={this.state.evidences} />
+          {/* <RegisterCase
+            accounts={this.state.accounts}
+            onRegisterCase={this.registerCase}
+            courtContract={this.courtContract}
+          /> */}
         </div>
       </div>
     );

@@ -14,9 +14,10 @@ contract Court
 
     struct Case {
         string courtId;
-        address firstParty;
-        address secondParty;
-        address judge;
+        string firstParty;
+        string secondParty;
+        string judge;
+        string FIR;
         string caseId;
         string caseDescription;
         mapping(uint => Evidence) evidences; // evidence[evidenceNum] = someEvidence
@@ -32,9 +33,10 @@ contract Court
 
     function registerCase(
         string _courtId,
-        address _firstParty,
-        address _secondParty,
-        address _judge,
+        string _firstParty,
+        string _secondParty,
+        string _judge,
+        string _FIR,
         string _caseId,
         string _caseDescription,
         string _startDateTime
@@ -44,6 +46,7 @@ contract Court
             firstParty: _firstParty,
             secondParty: _secondParty,
             judge: _judge,
+            FIR: _FIR,
             caseId: _caseId,
             caseDescription: _caseDescription,
             totalEvidences: 0,
@@ -51,8 +54,8 @@ contract Court
             initialised: true
         });
         // add caseId to casesGoingOn mapping to user if not already exists
-        addCase(_firstParty, _caseId);
-        addCase(_secondParty, _caseId);
+        // addCase(_firstParty, _caseId);
+        // addCase(_secondParty, _caseId);
     }
 
     function addCase(address party, string caseId) private {
@@ -112,7 +115,7 @@ contract Court
 
     function getCaseById(
         string caseId
-    ) public view returns (string, string, string, uint, address, address) {
+    ) public view returns (string, string, string, uint, string, string) {
         // // require(cases[caseId].initialised, "No such case exists!");
         Case memory reqcase = cases[caseId];
         return (
